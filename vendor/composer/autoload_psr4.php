@@ -6,5 +6,5 @@ $vendorDir = dirname(__DIR__);
 $baseDir = dirname($vendorDir);
 
 return array(
-    'Ruan\\Phpframework\\' => array($baseDir . '/src'),
+    'App\\' => array($baseDir . '/'),
 );

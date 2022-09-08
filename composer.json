@@ -3,8 +3,7 @@
     "description": "Phpmvcframework",
     "autoload": {
         "psr-4": {
-            "Ruan\\Phpframework\\": "src/Core"
-
+            "App\\": "./"
         }
     },
     "authors": [

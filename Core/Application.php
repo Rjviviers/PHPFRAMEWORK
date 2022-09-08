@@ -1,16 +1,24 @@
 <?php
-/** Application class 
-* @author Ruan viviers <
-*/
+/**
+ * Class Application
+ * @package Core
+ * @author Ruan viviers 
+ * 
+ */
+namespace App\Core;
 
-class Application extends AnotherClass{
+class Application {
+
+    public Router $router;
+    public Request $request;
 
     public function __construct(){
-        // TODO:
+        $this->request = new Request();
+        $this->router = new Router($this->request);
     }
 
     public function run(){
-        // TODO: run the application
+        $this->router->resolve();
     }
 
 }
