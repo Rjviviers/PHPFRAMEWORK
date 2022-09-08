@@ -1,0 +1,16 @@
+{
+    "name": "ruan/phpframework",
+    "description": "Phpmvcframework",
+    "autoload": {
+        "psr-4": {
+            "Ruan\\Phpframework\\": "src/Core"
+
+        }
+    },
+    "authors": [
+        {
+            "name": "Ruan Viviers"
+        }
+    ],
+    "require": {}
+}
