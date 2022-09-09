@@ -12,4 +12,4 @@ $app->router->post('/contact', function(){
 });
 
 $app->run();
-?>
+

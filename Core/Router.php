@@ -1,6 +1,6 @@
 <?php
 /** Router class 
-* @author Ruan viviers <
+* @author Ruan viviers
 */
 
 namespace App\Core;
@@ -24,8 +24,8 @@ class Router{
     /**
      * get routes
      * get path and return a callback
-     * @param string $path 
-     * @param callable $callback
+     * @param Request $request
+     * @param Response $response
      */
 
 
@@ -44,6 +44,7 @@ class Router{
     public function post( $path , $callback)
     {
         $this->routes['post'][$path] = $callback;
+
     }
 
     public function resolve()
@@ -57,9 +58,7 @@ class Router{
         }
         if (is_string($callback)){
             return $this->renderView($callback);
-            
         }
-            
         return call_user_func($callback);
     }
    
@@ -84,11 +83,13 @@ class Router{
         return ob_get_clean();
     }
 
-    protected function renderContent($viewContent)
-    {
-        $layoutContent = $this->layoutContent();
-        return str_replace('{{content}}', $viewContent, $layoutContent);
-    }
+// --Commented out by Inspection START (2022/09/08, 16:33):
+//    protected function renderContent($viewContent)
+//    {
+//        $layoutContent = $this->layoutContent();
+//        return str_replace('{{content}}', $viewContent, $layoutContent);
+//    }
+// --Commented out by Inspection STOP (2022/09/08, 16:33)
+
 }
 
-?>

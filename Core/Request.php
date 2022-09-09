@@ -7,7 +7,7 @@
 namespace App\Core;
 
 class Request{
-    public function getPath(Type $var = null)
+    public function getPath()
     {
         $path = $_SERVER['REQUEST_URI'] ?? '/';
         $position = strpos($path, '?');
@@ -16,7 +16,7 @@ class Request{
         }
         return substr($path, 0, $position);
     }
-    public function getMethod(Type $var = null)
+    public function getMethod(): string
     {
         return strtolower($_SERVER['REQUEST_METHOD']);
     }
@@ -24,4 +24,3 @@ class Request{
     
 }
 
-?>
