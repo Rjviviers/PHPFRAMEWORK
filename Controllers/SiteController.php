@@ -24,4 +24,5 @@ class SiteController extends Controller
     {
         return $request->getBody();
     }
+
 }

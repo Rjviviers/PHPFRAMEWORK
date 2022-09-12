@@ -13,7 +13,7 @@ class Application {
     public Router $router;
     public Request $request;
     public Response $response;
-
+    public static Controller $controller;
     public static Application $app;
 
     public function __construct($rootPath){
@@ -22,6 +22,22 @@ class Application {
         $this->request = new Request();
         $this->response = new Response();
         $this->router = new Router($this->request,$this->response);
+    }
+
+    /**
+     * @return Controller
+     */
+    public static function getController(): Controller
+    {
+        return self::$controller;
+    }
+
+    /**
+     * @param Controller $controller
+     */
+    public static function setController(Controller $controller): void
+    {
+        self::$controller = $controller;
     }
 
     public function run(){
