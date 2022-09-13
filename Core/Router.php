@@ -70,15 +70,14 @@ class Router{
     {
         $layoutContent = $this->layoutContent();
         $viewContent = $this->renderOnlyView($view, $params);
+
+        foreach ($params as $key => $value) {
+            $viewContent = str_replace("{{".$key."}}", $value, $viewContent);
+        }
+
         return str_replace('{{content}}', $viewContent, $layoutContent);
     }
-//    {
-//        var_dump($params);
-//        $layoutContent = $this->layoutContent();
-//        $viewContent = $this->renderOnlyView($view);
-//        return str_replace('{{content}}', $viewContent, $layoutContent);
-//
-//    }
+
 
     protected function layoutContent()
     {
@@ -96,19 +95,8 @@ class Router{
         include_once Application::$ROOT_DIR . "/Views/$view.php";
         return ob_get_clean();
     }
-//    {
-//        ob_start();
-//        include_once Application::$ROOT_DIR . "/Views/$view.php";
-//        return ob_get_clean();
-//    }
 
-// --Commented out by Inspection START (2022/09/08, 16:33):
-//    protected function renderContent($viewContent)
-//    {
-//        $layoutContent = $this->layoutContent();
-//        return str_replace('{{content}}', $viewContent, $layoutContent);
-//    }
-// --Commented out by Inspection STOP (2022/09/08, 16:33)
+
 
 }
 

@@ -17,7 +17,7 @@
 </head>
 
 <body>
-
+<?php include_once __DIR__ . '../../_shared/nav.php' ?>
 <div class="container">
     {{content}}
 </div>

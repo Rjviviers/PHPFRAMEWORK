@@ -10,6 +10,13 @@ $app = new Application(dirname(__DIR__));
 
 $app->router->get('/', [SiteController::class, 'home']);
 
+//about page routing
+$app->router->get('/about', [SiteController::class, 'about']);
+
+//blog page routing
+$app->router->get('/blog', [SiteController::class, 'blog']);
+
+//contcact page routing
 $app->router->get('/contact', [SiteController::class, "contact"]);
 $app->router->post('/contact', [SiteController::class, "handleContact"]);
 

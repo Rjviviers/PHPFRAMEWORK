@@ -5,7 +5,8 @@
                         <!-- Mashead text and app badges-->
                         <div class="mb-5 mb-lg-0 text-center text-lg-start">
                             <h1 class="display-1 lh-1 mb-3">Welcome to my Framework</h1>
-                            <h2><?= $name = $params['name'] ?? 'Guest' ?></h2>
+<!--                            <h2>--><?//= $name = $params['name'] ?? 'Guest' ?><!--</h2>-->
+                            {{name}} {{surname}}
                             <p class="lead fw-normal text-muted mb-5">Proof of concept</p>
                             
                         </div>
@@ -34,4 +35,4 @@
                     </div>
                 </div>
             </div>
-        </header>
+        </header>/

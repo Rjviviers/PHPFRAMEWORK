@@ -43,6 +43,14 @@ class Application {
     public function run(){
         echo $this->router->resolve();
     }
+    public function dump($var, bool $die = false){
+        echo "<pre>";
+        var_dump($var);
+        echo "</pre>";
+        if($die){
+            die();
+        }
+    }
 
 }
 

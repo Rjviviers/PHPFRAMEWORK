@@ -2,8 +2,6 @@
 
 namespace App\Controllers;
 
-
-use App\Core\Application;
 use App\Core\Controller;
 use App\Core\Request;
 
@@ -12,7 +10,8 @@ class SiteController extends Controller
     public function home(): string
     {
         $params = [
-            'name' => "Ruan"
+            'name' => "Ruan",
+            'surname' => "Viviers"
         ];
         return $this->render('Home', $params);
     }
@@ -23,6 +22,16 @@ class SiteController extends Controller
     public function handleContact(Request $request): array
     {
         return $request->getBody();
+    }
+
+    public function about(): string
+    {
+        return $this->render('About');
+    }
+
+    public function blog(): string
+    {
+        return $this->render('Blog');
     }
 
 }

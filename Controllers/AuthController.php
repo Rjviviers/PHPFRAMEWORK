@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+use App\Core\Application;
 use App\Core\Controller;
 use App\Core\Request;
 use App\Models\RegisterModel;
@@ -25,6 +26,7 @@ class AuthController extends Controller
             if ($registerModel->validate() && $registerModel->register()) {
                 return 'Success';
             }
+            Application::$app->dump($registerModel->errors);
             return $this->render('Register', [
                 'model' => $registerModel
             ]);

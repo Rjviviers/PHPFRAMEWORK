@@ -3,8 +3,23 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>mvc app</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta property="og:title" content="">
+    <meta property="og:type" content="">
+    <meta property="og:url" content="">
+    <meta property="og:image" content="">
+
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="apple-touch-icon" href="icon.png">
+    <!-- Place favicon.ico in the root directory -->
+
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/main.css">
+
+    <meta name="theme-color" content="#fafafa">
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Merienda+One">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
@@ -14,78 +29,21 @@
     <!-- Core theme CSS (includes Bootstrap)-->
     <!--suppress HtmlUnknownTarget -->
     <link href="css/style.css" rel="stylesheet"/>
+
+    <script src="js/vendor/modernizr-3.11.2.min.js"></script>
+    <script src="js/plugins.js"></script>
+    <script src="js/main.js"></script>
+
+    <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
+    <script>
+        window.ga = function () { ga.q.push(arguments) }; ga.q = []; ga.l = +new Date;
+        ga('create', 'UA-XXXXX-Y', 'auto'); ga('set', 'anonymizeIp', true); ga('set', 'transport', 'beacon'); ga('send', 'pageview')
+    </script>
+    <script src="https://www.google-analytics.com/analytics.js" async></script>
 </head>
 
 <body>
-
-<!--<nav class="navbar navbar-expand-xl navbar-light bg-light">-->
-<!--    <a href="#" class="navbar-brand"><i class="fa fa-cube"></i>MVC<b> Framework</b></a>-->
-<!--    <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">-->
-<!--        <span class="navbar-toggler-icon"></span>-->
-<!--    </button>-->
-<!--    <div id="navbarCollapse" class="collapse navbar-collapse justify-content-start navbar-nav ms-auto mb-2 mb-lg-0">-->
-<!--        <div class="navbar-nav">-->
-<!--            <a href="#" class="nav-item nav-link active">Home</a>-->
-<!--            <a href="#" class="nav-item nav-link">About</a>-->
-<!--            <a href="#" class="nav-item nav-link">Blog</a>-->
-<!--            <a href="#" class="nav-item nav-link">Contact</a>-->
-<!--        </div>-->
-<!--        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDarkDropdown" aria-controls="navbarNavDarkDropdown" aria-expanded="false"-->
-<!--                aria-label="Toggle navigation">-->
-<!--            <span class="navbar-toggler-icon"></span>-->
-<!--        </button>-->
-<!---->
-<!--        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDarkDropdown" aria-controls="navbarNavDarkDropdown" aria-expanded="false"-->
-<!--                aria-label="Toggle navigation">-->
-<!--            <span class="navbar-toggler-icon"></span>-->
-<!--        </button>-->
-<!--        <div class="navbar-nav ml">-->
-<!--            <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">-->
-<!--                <ul class="navbar-nav">-->
-<!--                    <li class="nav-item dropdown">-->
-<!--                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">-->
-<!--                            user-->
-<!--                        </a>-->
-<!--                        <ul class="dropdown-menu dropdown-menu-dark">-->
-<!--                            <li><a href="#" class="dropdown-item"><i class="fa fa-user-o"></i> Profile</a></li>-->
-<!--                            <li><a href="#" class="dropdown-item"><i class="fa fa-calendar-o"></i> Calendar</a></li>-->
-<!--                            <li><a href="#" class="dropdown-item"><i class="fa fa-sliders"></i> Settings</a></li>-->
-<!--                            <li>-->
-<!--                                <div class="dropdown-divider"></div>-->
-<!--                            </li>-->
-<!--                            <li><a href="#" class="dropdown-item"><i class="material-icons">&#xE8AC;</i> Logout</a></li>-->
-<!--                        </ul>-->
-<!--                    </li>-->
-<!--                </ul>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </div>-->
-<!--</nav>-->
-
-<!--bootstrap navbar with about contact and login/register-->
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="/">MVC Framework</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
-                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div class="navbar-nav">
-                <a class="nav-link active" aria-current="page" href="/">Home</a>
-                <a class="nav-link" href="/about">About</a>
-                <a class="nav-link" href="/blog">Blog</a>
-                <a class="nav-link" href="/contact">Contact</a>
-            </div>
-        </div>
-        <div class="navbar-nav ml-auto">
-            <a class="nav-link" href="/login">Login</a>
-            <a class="nav-link" href="/register">Register</a>
-        </div>
-    </div>
-</nav>
-
-
+<?php include_once __DIR__ . '../../_shared/nav.php' ?>
 <div class="container masthead">
     {{content}}
 </div>
