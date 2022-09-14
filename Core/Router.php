@@ -71,9 +71,9 @@ class Router{
         $layoutContent = $this->layoutContent();
         $viewContent = $this->renderOnlyView($view, $params);
 
-        foreach ($params as $key => $value) {
-            $viewContent = str_replace("{{".$key."}}", $value, $viewContent);
-        }
+//        foreach ($params as $key => $value) {
+//            $viewContent = str_replace("{{".$key."}}", $value, $viewContent);
+//        }
 
         return str_replace('{{content}}', $viewContent, $layoutContent);
     }

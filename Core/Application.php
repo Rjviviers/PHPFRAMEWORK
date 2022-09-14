@@ -45,6 +45,7 @@ class Application {
     }
     public function dump($var, bool $die = false){
         echo "<pre>";
+
         var_dump($var);
         echo "</pre>";
         if($die){

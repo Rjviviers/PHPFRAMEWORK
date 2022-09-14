@@ -7,31 +7,23 @@ use App\Core\Model;
 
 class RegisterModel extends Model
 {
-    public string $firstName ;
-    public string $lastName ;
-    public string $email ;
-    public string $password ;
-    public string $confirmPassword;
+    public string $firstName = '';
+    public string $lastName = '';
+    public string $email = '';
+    public string $password = '';
+    public string $confirmPassword = '';
 
-    public function register()
+
+//    labels for the form
+    public function labels(): array
     {
-        $this->password = password_hash($this->password, PASSWORD_DEFAULT);
-        $this->save();
-    }
-
-
-//    public function load($data)
-//    {
-//        $this->firstName = $data['firstName'];
-//        $this->lastName = $data['lastName'];
-//        $this->email = $data['email'];
-//        $this->password = $data['password'];
-//        $this->confirmPassword = $data['confirmPassword'];
-//    }
-
-    public function save()
-    {
-//        Application::$app->dump($this);
+        return [
+            'firstName' => 'First Name',
+            'lastName' => 'Last Name',
+            'email' => 'Email',
+            'password' => 'Password',
+            'confirmPassword' => 'Confirm Password'
+        ];
     }
 
     public function rules(): array
@@ -45,8 +37,20 @@ class RegisterModel extends Model
         ];
 
     }
-    public function validate():bool
+
+    function hasError($attribute)
     {
-        return true;
+        return $this->errors[$attribute] ?? false;
+    }
+
+    public function getFirstError($attribute)
+    {
+        return $this->errors[$attribute][0] ?? false;
+    }
+
+
+    public function save()
+    {
+        // TODO: Implement save() method.
     }
 }
