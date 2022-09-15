@@ -7,12 +7,17 @@ use App\Core\Model;
 
 class RegisterModel extends Model
 {
-    public string $firstName = '';
-    public string $lastName = '';
-    public string $email = '';
-    public string $password = '';
-    public string $confirmPassword = '';
+    public string $firstName = "";
+    public string $lastName = "";
+    public string $email = "";
+    public string $password = "";
+    public string $confirmPassword = "";
 
+
+    public function register()
+    {
+        echo "success";
+    }
 
 //    labels for the form
     public function labels(): array
@@ -37,17 +42,6 @@ class RegisterModel extends Model
         ];
 
     }
-
-    function hasError($attribute)
-    {
-        return $this->errors[$attribute] ?? false;
-    }
-
-    public function getFirstError($attribute)
-    {
-        return $this->errors[$attribute][0] ?? false;
-    }
-
 
     public function save()
     {

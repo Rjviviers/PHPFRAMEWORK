@@ -16,7 +16,7 @@ $app->router->get('/about', [SiteController::class, 'about']);
 //blog page routing
 $app->router->get('/blog', [SiteController::class, 'blog']);
 
-//contcact page routing
+//Contact page routing
 $app->router->get('/contact', [SiteController::class, "contact"]);
 $app->router->post('/contact', [SiteController::class, "handleContact"]);
 

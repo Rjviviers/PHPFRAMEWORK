@@ -56,6 +56,11 @@ abstract class Model
 
     abstract public function save();
 
+    function hasError($attribute)
+    {
+        return $this->errors[$attribute] ?? false;
+    }
+
     private function addError(string $attribute, string $rule,$params = [])
     {
         $message = $this->errorMessages()[$rule] ?? '';
@@ -65,7 +70,10 @@ abstract class Model
         $this->errors[$attribute][] = $message;
     }
 
-
+    public function getFirstError($attribute)
+    {
+        return $this->errors[$attribute][0] ?? false;
+    }
 
     private function errorMessages(): array
     {
