@@ -5,7 +5,7 @@ namespace App\Controllers;
 use App\Core\Application;
 use App\Core\Controller;
 use App\Core\Request;
-use App\Models\RegisterModel;
+use App\Models\User;
 
 class AuthController extends Controller
 {
@@ -20,7 +20,7 @@ class AuthController extends Controller
     {
         $this->setLayout('auth');
         if($request->isPost()){
-            $registerModel = new RegisterModel();
+            $registerModel = new User();
             $registerModel->loadData($request->getBody());
 
             if($registerModel->validate() && $registerModel->register()){
@@ -34,7 +34,7 @@ class AuthController extends Controller
 
         return $this->render('Register',
             [
-                'model' => new RegisterModel()
+                'model' => new User()
             ]
         );
     }
