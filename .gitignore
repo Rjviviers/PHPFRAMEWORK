@@ -1,2 +1,4 @@
 vendor
 !gitignore
+.env
+.idea
