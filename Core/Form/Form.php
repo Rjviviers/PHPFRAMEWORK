@@ -8,13 +8,13 @@ class Form
 {
 
 
-    public static function begin($action, $method):Form
+    public static function begin($action, $method): Form
     {
-         echo sprintf('<form action="%s" method="%s">',
-             $action,
-             $method
-         );
-         return new Form();
+        echo sprintf('<form action="%s" method="%s">',
+            $action,
+            $method
+        );
+        return new Form();
     }
 
     public static function end()
@@ -31,7 +31,6 @@ class Form
     {
         echo '<button type="submit" class="btn btn-primary">Submit</button>';
     }
-
 
 
 }

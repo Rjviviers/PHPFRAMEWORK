@@ -15,10 +15,12 @@ class SiteController extends Controller
         ];
         return $this->render('Home', $params);
     }
+
     public function contact(): string
     {
         return $this->render('Contact');
     }
+
     public function handleContact(Request $request): array
     {
         return $request->getBody();

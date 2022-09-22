@@ -1,17 +1,17 @@
 {
-    "name": "ruan/phpframework",
-    "description": "Phpmvcframework",
-    "autoload": {
-        "psr-4": {
-            "App\\": "./"
-        }
-    },
-    "authors": [
-        {
-            "name": "Ruan Viviers"
-        }
-    ],
-    "require": {
-        "vlucas/phpdotenv": "^5.4"
+  "name": "ruan/phpframework",
+  "description": "Phpmvcframework",
+  "autoload": {
+    "psr-4": {
+      "App\\": "./"
     }
+  },
+  "authors": [
+    {
+      "name": "Ruan Viviers"
+    }
+  ],
+  "require": {
+    "vlucas/phpdotenv": "^5.4"
+  }
 }

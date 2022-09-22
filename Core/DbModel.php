@@ -13,10 +13,10 @@ abstract class DbModel extends Model
     {
         $tableName = $this->tableName();
         $attributes = $this->attributes();
-        $values = Array();
+        $values = array();
 
         foreach ($attributes as $attribute) {
-            array_push($values, [$attribute  => $this->{$attribute}]);
+            array_push($values, [$attribute => $this->{$attribute}]);
         }
         var_dump($values);
         $statement = self::prepare("INSERT INTO $tableName (" . implode(',', array_keys($values)) . ") VALUES (" . implode(',', array_values($values)) . ")");

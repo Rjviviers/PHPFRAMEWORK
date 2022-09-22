@@ -2,12 +2,14 @@
 /**
  * Class Application
  * @package Core
- * @author Ruan viviers 
- * 
+ * @author Ruan viviers
+ *
  */
+
 namespace App\Core;
 
-class Application {
+class Application
+{
 
     public static string $ROOT_DIR;
     public Router $router;
@@ -17,12 +19,13 @@ class Application {
     public static Controller $controller;
     public static Application $app;
 
-    public function __construct($rootPath,array $config){
+    public function __construct($rootPath, array $config)
+    {
         self::$app = $this;
         self::$ROOT_DIR = $rootPath;
         $this->request = new Request();
         $this->response = new Response();
-        $this->router = new Router($this->request,$this->response);
+        $this->router = new Router($this->request, $this->response);
 
         $this->db = new Database($config['db']);
     }
@@ -43,15 +46,18 @@ class Application {
         self::$controller = $controller;
     }
 
-    public function run(){
+    public function run()
+    {
         echo $this->router->resolve();
     }
-    public function dump($var, bool $die = false){
+
+    public function dump($var, bool $die = false)
+    {
         echo "<pre>";
 
         var_dump($var);
         echo "</pre>";
-        if($die){
+        if ($die) {
             die();
         }
     }

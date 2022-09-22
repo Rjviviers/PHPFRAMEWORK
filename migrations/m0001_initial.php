@@ -1,6 +1,9 @@
 <?php
-class m0001_initial{
-    public function up(){
+
+class m0001_initial
+{
+    public function up()
+    {
 
         $db = \App\Core\Application::$app->db;
         $SQL = "Create table users(
@@ -13,7 +16,9 @@ class m0001_initial{
         ) ENGINE=INNODB;";
         $db->pdo->exec($SQL);
     }
-    public function down(){
+
+    public function down()
+    {
         $db = \App\Core\Application::$app->db;
         $SQL = "DROP table users(
             id INT AUTO_INCREMENT PRIMARY KEY,

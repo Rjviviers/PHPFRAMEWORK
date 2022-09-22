@@ -69,7 +69,8 @@ class Database
         $this->pdo->prepare("INSERT INTO migrations (migration) VALUES $str")->execute();
     }
 
-    protected function log($message){
+    protected function log($message)
+    {
         echo date('Y-m-d H:i:s') . ' ' . $message . PHP_EOL;
     }
 

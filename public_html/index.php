@@ -1,4 +1,5 @@
 <?php
+
 use App\Controllers\AuthController;
 use App\Controllers\SiteController;
 use App\Core\Application;
@@ -15,7 +16,7 @@ $config = [
     ]
 ];
 
-$app = new Application(dirname(__DIR__),$config);
+$app = new Application(dirname(__DIR__), $config);
 
 $app->router->get('/', [SiteController::class, 'home']);
 
