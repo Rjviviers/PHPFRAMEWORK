@@ -72,9 +72,11 @@ class Router{
         $viewContent = $this->renderOnlyView($view, $params);
 
         /*Renders view placeholder variables*/
-//        foreach ($params as $key => $value) {
-//            $viewContent = str_replace("{{".$key."}}", $value, $viewContent);
-//        }
+        foreach ($params as $key => $value) {
+            if(str_contains($viewContent,"{{".$key."}}")){
+                $viewContent = str_replace("{{".$key."}}", $value, $viewContent);
+            }
+        }
 
         return str_replace('{{content}}', $viewContent, $layoutContent);
     }
