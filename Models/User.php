@@ -3,10 +3,11 @@
 namespace App\Models;
 
 use App\Core\Application;
+use App\Core\DbModel;
 use App\Core\DbModel as parentAlias;
 use App\Core\Model;
 
-class User extends parentAlias
+class User extends DbModel
 {
     public string $firstName = "";
     public string $lastName = "";
@@ -17,9 +18,7 @@ class User extends parentAlias
 
     public function register()
     {
-
-        $this->password = password_hash($this->password, PASSWORD_DEFAULT);
-        parent::save();
+        return $this->save();
     }
 
 //    labels for the form
@@ -46,10 +45,10 @@ class User extends parentAlias
 
     }
 
-    public function save()
-    {
-//TODO
-    }
+//    public function save()
+//    {
+//        return parent::save();
+//    }
 
     public function tableName(): string
     {
