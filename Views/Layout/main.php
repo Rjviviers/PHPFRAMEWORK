@@ -1,3 +1,6 @@
+<?php
+use App\Core\Application;
+?>
 <!doctype html>
 <html lang="en">
 
@@ -52,6 +55,12 @@
 <body>
 <?php include_once __DIR__ . '../../_shared/nav.php' ?>
 <div class="container masthead">
+    <?php
+    if (Application::$app->session->getFlash('success')): ?>
+        <div class="alert alert-success">
+            <?php echo Application::$app->session->getFlash('success') ?>
+        </div>
+    <?php endif; ?>
     {{content}}
 </div>
 
