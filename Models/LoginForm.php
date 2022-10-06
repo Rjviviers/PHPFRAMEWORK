@@ -30,6 +30,12 @@ class LoginForm extends Model
             'password' => 'Password'
         ];
     }
+
+    public function getLabels($attribute) : string
+    {
+        return $this->labels()[$attribute] ?? $attribute;
+    }
+
     /**
      * @return array
      */
@@ -51,4 +57,6 @@ class LoginForm extends Model
     {
         return true;
     }
+
+
 }

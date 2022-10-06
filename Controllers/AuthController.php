@@ -6,23 +6,27 @@ use App\Core\Application;
 use App\Core\Controller;
 use App\Core\Request;
 use App\Core\Response;
+use App\Models\LoginForm;
 use App\Models\User;
 
 class AuthController extends Controller
 {
 
-    public function login(Request $request,Response $response): string
+    public function login(Request $request,Response $response)
     {
         $loginForm = new LoginForm();
         if ($request->isPost()) {
             $loginForm->loadData($request->getBody());
             if ($loginForm->validate() && $loginForm->login()) {
                 $response->redirect('/');
-                return '';
+                return;
             }
         }
         $this->setLayout('auth');
-        return $this->render('Login');
+
+        return $this->render('login',[
+            'model' => $loginForm
+        ]);
     }
 
     public function register(Request $request): string
@@ -37,13 +41,13 @@ class AuthController extends Controller
                 Application::$app->response->redirect('/');
                 exit;
             }
-            return $this->render('Register', [
+            return $this->render('register', [
                 'model' => $user
             ]);
 
         }
 
-        return $this->render('Register',
+        return $this->render('register',
             [
                 'model' => new User()
             ]

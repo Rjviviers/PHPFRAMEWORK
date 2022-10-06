@@ -52,9 +52,9 @@ use App\Core\Application;
     <script src="https://www.google-analytics.com/analytics.js" async></script>
 </head>
 
-<body>
+<body class="bg-dark">
 <?php include_once __DIR__ . '../../_shared/nav.php' ?>
-<div class="container masthead">
+<div class="container masthead ">
     <?php
     if (Application::$app->session->getFlash('success')): ?>
         <div class="alert alert-success">

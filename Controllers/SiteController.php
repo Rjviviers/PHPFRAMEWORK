@@ -13,12 +13,12 @@ class SiteController extends Controller
             'name' => "Ruan",
             'surname' => "Viviers"
         ];
-        return $this->render('Home', $params);
+        return $this->render('home', $params);
     }
 
     public function contact(): string
     {
-        return $this->render('Contact');
+        return $this->render('contact');
     }
 
     public function handleContact(Request $request): array
@@ -28,12 +28,12 @@ class SiteController extends Controller
 
     public function about(): string
     {
-        return $this->render('About');
+        return $this->render('about');
     }
 
     public function blog(): string
     {
-        return $this->render('Blog');
+        return $this->render('blog');
     }
 
 }

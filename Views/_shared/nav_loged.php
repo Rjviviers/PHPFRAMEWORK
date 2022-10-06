@@ -14,8 +14,7 @@
             </div>
         </div>
         <div class="navbar-nav ml-auto">
-            <a class="nav-link" href="/login">Login</a>
-            <a class="nav-link" href="/register">Register</a>
+            <a class="nav-link" href="/logout">Logout</a>
         </div>
     </div>
 </nav>
