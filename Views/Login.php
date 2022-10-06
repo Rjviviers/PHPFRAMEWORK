@@ -1,17 +1,23 @@
-<h1>Log in</h1>
-<form>
-    <div class="mb-3">
-        <label for="InputEmail1" class="form-label">Email address</label>
-        <input type="email" class="form-control" id="InputEmail1" aria-describedby="emailHelp">
-        <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
-    </div>
-    <div class="mb-3">
-        <label for="InputPassword1" class="form-label">Password</label>
-        <input type="password" class="form-control" id="InputPassword1">
-    </div>
-    <div class="mb-3 form-check">
-        <input type="checkbox" class="form-check-input" id="Check1">
-        <label class="form-check-label" for="Check1">Check me out</label>
-    </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
-</form>
+<?php
+/**
+ * @var $model User
+ */
+?>
+
+<div class="mt-5">
+    <h1>Login</h1>
+    <?php
+
+    use App\Core\Form\Form;
+    use App\Models\User;
+
+    $form = Form::begin('', 'post');
+    echo $form->field($model, 'email');
+    echo $form->field($model, 'password')->passwordField();
+    $form->submit('Submit');
+    $form->end();
+
+    ?>
+</div>
+
+

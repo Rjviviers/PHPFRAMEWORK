@@ -40,6 +40,10 @@ class User extends DbModel
         ];
     }
 
+    public function getLables($attribute)
+    {
+        return $this->labels()[$attribute] ?? $attribute;
+    }
     public function rules(): array
     {
         return [
