@@ -16,7 +16,7 @@
     <link href="css/style.css" rel="stylesheet"/>
 </head>
 
-<body>
+<body class="bg-dark">
 <?php include_once __DIR__ . '../../_shared/nav.php' ?>
 <div class="container">
     {{content}}

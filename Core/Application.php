@@ -12,6 +12,8 @@ class Application
 {
 
     public static string $ROOT_DIR;
+
+    public string $userClass;
     public Router $router;
     public Request $request;
     public Response $response;
@@ -19,16 +21,29 @@ class Application
     public Session $session;
     public static Controller $controller;
     public static Application $app;
+    public ?DbModel $user;
 
     public function __construct($rootPath, array $config)
     {
+        $this->userClass = $config['userClass'];
         self::$app = $this;
         self::$ROOT_DIR = $rootPath;
         $this->request = new Request();
         $this->response = new Response();
         $this->router = new Router($this->request, $this->response);
         $this->session = new Session();
+
         $this->db = new Database($config['db']);
+
+        $primaryValue = $this->session->get('user');
+        if ($primaryValue) {
+            $primaryKey = $this->userClass::primaryKey();
+            $this->user = $this->userClass::findOne([$primaryKey => $primaryValue]);
+        } else {
+            $this->user = null;
+        }
+
+        $this->userClass::findOne(['id' => $primaryValue]);
     }
 
     /**
@@ -52,16 +67,17 @@ class Application
         echo $this->router->resolve();
     }
 
-    public function dump($var, bool $die = false)
+    public function login(DbModel $user)
     {
-        echo "<pre>";
-
-        var_dump($var);
-        echo "</pre>";
-        if ($die) {
-            die();
-        }
+        $this->user = $user;
+        $primaryKey = $user->primaryKey();
+        $primaryKeyValue = $user->{$primaryKey};
+        $this->session->set('user', $primaryKeyValue);
+        return true;
     }
+
+
+
 
 }
 

@@ -5,7 +5,7 @@
 ?>
 
 <div class="mt-5">
-    <h1>Login</h1>
+    <h1 class="text-light">Login</h1>
     <?php
 
     use App\Core\Form\Form;

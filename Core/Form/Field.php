@@ -33,8 +33,8 @@ class Field
     {
         return sprintf('
         <div class="mb-3">
-            <label class="form-label">%s</label>
-            <input type="%s" name="%s" value="%s" class="form-control %s">
+            <label class="form-label text-light">%s</label>
+            <input type="%s" name="%s" value="%s" class="form-control bg-dark text-light %s">
             <div class="invalid-feedback">
                 %s
             </div>

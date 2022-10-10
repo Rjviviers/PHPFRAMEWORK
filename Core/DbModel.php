@@ -8,6 +8,7 @@ abstract class DbModel extends Model
 
     abstract public function attributes(): array;
 
+    abstract public function primaryKey(): string;
 
     public function save()
     {
@@ -29,7 +30,7 @@ abstract class DbModel extends Model
         return Application::$app->db->pdo->prepare($sql);
     }
 
-    public static function findOne($where)
+    public function findOne($where)
     {
         $tableName = static::tableName();
         $attributes = array_keys($where);
