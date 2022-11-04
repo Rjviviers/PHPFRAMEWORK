@@ -1,3 +1,6 @@
+<?php
+use App\Core\Application;
+?>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
         <a class="navbar-brand" href="/">MVC Framework</a>
@@ -13,10 +16,17 @@
                 <a class="nav-link" href="/contact">Contact</a>
             </div>
         </div>
+        <?php if (Application::isGuest()): ?>
         <div class="navbar-nav ml-auto">
             <a class="nav-link" href="/login">Login</a>
             <a class="nav-link" href="/register">Register</a>
         </div>
+        <?php else: ?>
+        <div class="navbar-nav ml-auto">
+            <a class="nav-link" href="#">Welcome <?php echo Application::$app->user->getDisplayName() ?></a>
+            <a class="nav-link" href="/logout">Logout</a>
+        </div>
+        <?php endif; ?>
     </div>
 </nav>
 

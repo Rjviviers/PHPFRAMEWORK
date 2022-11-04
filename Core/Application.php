@@ -39,7 +39,8 @@ class Application
         if ($primaryValue) {
             $primaryKey = $this->userClass::primaryKey();
             $this->user = $this->userClass::findOne([$primaryKey => $primaryValue]);
-        } else {
+        }
+        else {
             $this->user = null;
         }
 
@@ -62,12 +63,17 @@ class Application
         self::$controller = $controller;
     }
 
-    public function run()
+    public static function isGuest(): bool
+    {
+        return !self::$app->user;
+    }
+
+    public function run(): void
     {
         echo $this->router->resolve();
     }
 
-    public function login(DbModel $user)
+    public function login(DbModel $user): bool
     {
         $this->user = $user;
         $primaryKey = $user->primaryKey();
@@ -76,7 +82,12 @@ class Application
         return true;
     }
 
+    public function logout(): void
+    {
+        $this->user = null;
+        $this->session->remove('user');
 
+    }
 
 
 }

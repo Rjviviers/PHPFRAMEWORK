@@ -29,6 +29,11 @@ class AuthController extends Controller
         ]);
     }
 
+    public function logout()
+    {
+        Application::$app->logout();
+        Application::$app->response->redirect('/');
+    }
     public function register(Request $request): string
     {
         $this->setLayout('auth');

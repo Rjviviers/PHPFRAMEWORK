@@ -8,7 +8,12 @@ use App\Models\User;
 require_once __DIR__ . '/../vendor/autoload.php';
 $dotenv = Dotenv\Dotenv::createImmutable(dirname(__DIR__));
 $dotenv->load();
-
+//set php to show errors
+ini_set('display_errors', '1');
+//format errors
+ini_set('html_errors', '1');
+ini_set('error_prepend_string','<pre style="color: white">');
+ini_set('error_append_string','</pre>');
 $config = [
     'userClass' => User::class,
     'db' => [
@@ -39,6 +44,10 @@ $app->router->post('/login', [AuthController::class, "login"]);
 //implement router for register view and form handling
 $app->router->get('/register', [AuthController::class, "register"]);
 $app->router->post('/register', [AuthController::class, "register"]);
+
+//implement router for logout
+$app->router->get('/logout', [AuthController::class, "logout"]);
+
 
 $app->run();
 

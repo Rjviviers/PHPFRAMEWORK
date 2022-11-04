@@ -37,11 +37,11 @@ class LoginForm extends Model
     }
 
     /**
-     * @return array
+     * @return bool
      */
-    public function login() : bool
+    public function login() :bool
     {
-        $user = (new User)->findOne(['email' => $this->email]);
+        $user = User::findOne(['email' => $this->email]);
         if (!$user) {
             $this->addError('email', 'User does not exist with this email');
             return false;
@@ -50,9 +50,6 @@ class LoginForm extends Model
             $this->addError('password', 'Password is incorrect');
             return false;
         }
-        echo "<pre>";
-        var_dump($user);
-        echo "</pre>";
         return Application::$app->login($user);
     }
 
